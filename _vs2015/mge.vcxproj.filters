@@ -98,6 +98,12 @@
       <Filter>MGE Source files\mge\materials</Filter>
     </ClInclude>
     <ClInclude Include="Classes\WorldGen.hpp" />
+    <ClInclude Include="Classes\Frustum.hpp">
+      <Filter>MGE Source files</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\Plane.hpp">
+      <Filter>MGE Source files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\main.cpp">
@@ -170,6 +176,12 @@
       <Filter>MGE Source files\mge\materials</Filter>
     </ClCompile>
     <ClCompile Include="Classes\WorldGen.cpp">
+      <Filter>MGE Source files</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\Frustum.cpp">
+      <Filter>MGE Source files</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\Plane.cpp">
       <Filter>MGE Source files</Filter>
     </ClCompile>
   </ItemGroup>

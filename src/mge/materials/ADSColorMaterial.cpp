@@ -9,6 +9,7 @@
 #include "mge/core/ShaderProgram.hpp"
 #include "mge/config.hpp"
 
+
 ShaderProgram* ADSColorMaterial::_shader = NULL;
 
 GLint ADSColorMaterial::_uMVPMatrix = 0;
@@ -62,6 +63,11 @@ void ADSColorMaterial::_initShader() {
 
 void ADSColorMaterial::render(World* pWorld, Mesh* pMesh, const glm::mat4& pModelMatrix, const glm::mat4& pViewMatrix, const glm::mat4& pProjectionMatrix) {
 	/*if (mainCam == nullptr) */mainCam = pWorld->getMainCamera();
+
+	ViewFrustum = Frustum(mainCam->getProjection());
+
+	//TODO: get object position over here
+	//if(!ViewFrustum.SphereIntersect())
 
 	_shader->use();
 

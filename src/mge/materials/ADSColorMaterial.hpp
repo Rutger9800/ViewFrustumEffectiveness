@@ -4,6 +4,8 @@
 #include "mge/materials/AbstractMaterial.hpp"
 #include "GL/glew.h"
 #include "mge/core/Camera.hpp"
+#include "../_vs2015/Classes/Frustum.hpp"
+
 
 class ShaderProgram;
 class Texture;
@@ -24,6 +26,7 @@ class ADSColorMaterial : public AbstractMaterial
     private:
         static ShaderProgram* _shader;
         static void _initShader();
+        Frustum ViewFrustum;
 
         //in this example we cache all identifiers for uniforms & attributes
         static GLint _uMVPMatrix, _uColor, _aVertex

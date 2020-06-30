@@ -44,8 +44,7 @@ void SpecialScene::_initializeScene()
 
 	//meshes
 	Mesh* planeMeshDefault = Mesh::load(config::MGE_MODEL_PATH + "plane_8192.obj");
-	Mesh* monkeyMesh = Mesh::load(config::MGE_MODEL_PATH + "suzanna_smooth.obj");
-	//Mesh* cubeMesh = Mesh::load(config::MGE_MODEL_PATH + "cube_flat.obj");
+	//Mesh* monkeyMesh = Mesh::load(config::MGE_MODEL_PATH + "suzanna_smooth.obj");
 	Mesh* sphereMesh = Mesh::load(config::MGE_MODEL_PATH + "sphere_smooth.obj");
 	Mesh* terrainMesh = Mesh::load(config::MGE_MODEL_PATH + "plane_8192.obj");
 
@@ -65,9 +64,6 @@ void SpecialScene::_initializeScene()
 
 	GameObject* sphere = new GameObject("spherio", glm::vec3(1, 0, 1), sphereMesh, grayMat);
 	_world->add(sphere);
-
-	GameObject* monkey = new GameObject("monkey", glm::vec3(-2, 0, 0), monkeyMesh, orangeTexMaterial);
-	_world->add(monkey);//monkey is followed by the camera
 
 	//Light
 	Light* pointLight = new Light("lightOne", glm::vec3(-4, 0, 2), glm::vec3(1, 1, 1));

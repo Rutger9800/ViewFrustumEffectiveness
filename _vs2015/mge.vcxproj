@@ -189,6 +189,8 @@
     <ClInclude Include="..\src\mge\util\DebugHud.hpp" />
     <ClInclude Include="..\src\mge\util\ShaderUtil.h" />
     <ClInclude Include="CameraBehaviour.hpp" />
+    <ClInclude Include="Classes\Frustum.hpp" />
+    <ClInclude Include="Classes\Plane.hpp" />
     <ClInclude Include="Classes\WorldGen.hpp" />
     <ClInclude Include="SpecialScene.hpp" />
   </ItemGroup>
@@ -215,6 +217,8 @@
     <ClCompile Include="..\src\mge\util\DebugHud.cpp" />
     <ClCompile Include="..\src\mge\util\ShaderUtil.cpp" />
     <ClCompile Include="CameraBehaviour.cpp" />
+    <ClCompile Include="Classes\Frustum.cpp" />
+    <ClCompile Include="Classes\Plane.cpp" />
     <ClCompile Include="Classes\WorldGen.cpp" />
     <ClCompile Include="SpecialScene.cpp" />
   </ItemGroup>
