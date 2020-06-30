@@ -1,0 +1,133 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="MGEDemo" Collapsed="true">
+    <Position X="10.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEEAAAAIAAAAAAAAEAAAAAAAAAAAAEBAAgACAAAAA=</HashCode>
+      <FileName>C:\Users\Rutger\Dropbox\_AAA School\3D Rendering\002_bundles\mge_v18_student_version\src\mge\MGEDemo.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AbstractBehaviour" Collapsed="true">
+    <Position X="6.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgAgAAAAAAAAAAAAAAAAAAAAgAAAAQAAAAgAAAEAAA=</HashCode>
+      <FileName>C:\Users\Rutger\Dropbox\_AAA School\3D Rendering\002_bundles\mge_v18_student_version\src\mge\behaviours\AbstractBehaviour.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="KeysBehaviour" Collapsed="true">
+    <Position X="5.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAEAQAAAAAAAAAAAAAAAAEAAAAAAAAQAAAAEAAA=</HashCode>
+      <FileName>C:\Users\Rutger\Dropbox\_AAA School\3D Rendering\002_bundles\mge_v18_student_version\src\mge\behaviours\KeysBehaviour.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RotatingBehaviour" Collapsed="true">
+    <Position X="7.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAEEAAA=</HashCode>
+      <FileName>C:\Users\Rutger\Dropbox\_AAA School\3D Rendering\002_bundles\mge_v18_student_version\src\mge\behaviours\RotatingBehaviour.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AbstractGame" Collapsed="true">
+    <Position X="10.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEEAgBkAggAAAEAAAEAAAAAEAAAQAAAAAEgACAAAGA=</HashCode>
+      <FileName>C:\Users\Rutger\Dropbox\_AAA School\3D Rendering\002_bundles\mge_v18_student_version\src\mge\core\AbstractGame.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Camera" Collapsed="true">
+    <Position X="0.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAEAAAAAQAAAAAAAAAAAAAQAAAAgAAAAAAA=</HashCode>
+      <FileName>C:\Users\Rutger\Dropbox\_AAA School\3D Rendering\002_bundles\mge_v18_student_version\src\mge\core\Camera.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameObject" Collapsed="true">
+    <Position X="3" Y="0.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>RDASIAAIAAACCGAEARAQAAATgAQAAABADACkAIJGBEA=</HashCode>
+      <FileName>C:\Users\Rutger\Dropbox\_AAA School\3D Rendering\002_bundles\mge_v18_student_version\src\mge\core\GameObject.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Light" Collapsed="true">
+    <Position X="3" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAACAAAAAAgAAAAAAAAAAAAAAAIAAAAA=</HashCode>
+      <FileName>C:\Users\Rutger\Dropbox\_AAA School\3D Rendering\002_bundles\mge_v18_student_version\src\mge\core\Light.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Mesh" Collapsed="true">
+    <Position X="12" Y="0.5" Width="1.5" />
+    <NestedTypes>
+      <Class Name="Mesh::FaceIndexTriplet" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>C:\Users\Rutger\Dropbox\_AAA School\3D Rendering\002_bundles\mge_v18_student_version\src\mge\core\Mesh.hpp</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>BAAAAgAkAIEAAAAAAAgAAAAAAASQAIgAAQgAAAAAAAA=</HashCode>
+      <FileName>C:\Users\Rutger\Dropbox\_AAA School\3D Rendering\002_bundles\mge_v18_student_version\src\mge\core\Mesh.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Renderer" Collapsed="true">
+    <Position X="13.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgABggAAAAAAAEAACAAAAAAAAAAAAAAACAAAAQAAA=</HashCode>
+      <FileName>C:\Users\Rutger\Dropbox\_AAA School\3D Rendering\002_bundles\mge_v18_student_version\src\mge\core\Renderer.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ShaderProgram" Collapsed="true">
+    <Position X="10.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAABAAAgAAGgABIABgAAAAgg=</HashCode>
+      <FileName>C:\Users\Rutger\Dropbox\_AAA School\3D Rendering\002_bundles\mge_v18_student_version\src\mge\core\ShaderProgram.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Texture" Collapsed="true">
+    <Position X="12" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAAAAIAAgAAAAABAAAAAAAACAAAAAAIAAAAAAAA=</HashCode>
+      <FileName>C:\Users\Rutger\Dropbox\_AAA School\3D Rendering\002_bundles\mge_v18_student_version\src\mge\core\Texture.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="World" Collapsed="true">
+    <Position X="5.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAABAAAAQAAAAAAAIgAAAAAAAAAAAhECgAAAA=</HashCode>
+      <FileName>C:\Users\Rutger\Dropbox\_AAA School\3D Rendering\002_bundles\mge_v18_student_version\src\mge\core\World.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AbstractMaterial" Collapsed="true">
+    <Position X="1.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAEQAAAAAAAAAAAAAAAAAQAAA=</HashCode>
+      <FileName>C:\Users\Rutger\Dropbox\_AAA School\3D Rendering\002_bundles\mge_v18_student_version\src\mge\materials\AbstractMaterial.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ColorMaterial" Collapsed="true">
+    <Position X="2.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAGAAIAAIAAAAAAAAAAAAAAAARAAAAAAAQAAA=</HashCode>
+      <FileName>C:\Users\Rutger\Dropbox\_AAA School\3D Rendering\002_bundles\mge_v18_student_version\src\mge\materials\ColorMaterial.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TextureMaterial" Collapsed="true">
+    <Position X="0.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAgAAAAAAIAFAAAAAAAIAAAAABAAAQAQAgAQASAAA=</HashCode>
+      <FileName>C:\Users\Rutger\Dropbox\_AAA School\3D Rendering\002_bundles\mge_v18_student_version\src\mge\materials\TextureMaterial.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DebugHud" Collapsed="true">
+    <Position X="10.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABBAAAAAgAAAAAAAAIIAAMAAACAAAAgAAAgAAAAAAA=</HashCode>
+      <FileName>C:\Users\Rutger\Dropbox\_AAA School\3D Rendering\002_bundles\mge_v18_student_version\src\mge\util\DebugHud.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="8.83" />
+</ClassDiagram>

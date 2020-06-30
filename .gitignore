@@ -3,3 +3,4 @@ _vs2015/debug_dynamic_build/
 _vs2015/debug_dynamic_exe/
 assets/mge/models/
 _vs2015/.vs/Assignment 3/v16/ipch/
+*.db
