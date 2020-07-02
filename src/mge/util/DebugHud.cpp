@@ -16,6 +16,7 @@ DebugHud::DebugHud( sf::RenderWindow * aWindow ): _window( aWindow ), _debugInfo
     }
 
     _createDebugHud();
+    _createObjectsHud();
 }
 
 DebugHud::~DebugHud()
@@ -28,11 +29,26 @@ void DebugHud::_createDebugHud() {
     _debugText.setFont(_font);
 	_debugText.setCharacterSize(16);
 	_debugText.setFillColor(sf::Color::White);
+    _debugText.setPosition(10, 10);
+}
+
+void DebugHud::_createObjectsHud()
+{
+    _objectText.setString("" );
+    _objectText.setFont(_font);
+    _objectText.setCharacterSize(16);
+    _objectText.setFillColor(sf::Color::White);
+    _objectText.setPosition(10, 30);
 }
 
 void DebugHud::setDebugInfo(std::string pInfo) {
     _debugText.setString(pInfo);
-	_debugText.setPosition(10, 10);
+}
+
+void DebugHud::setObjectsInfo(std::string pInfo)
+{
+    _objectText.setString(pInfo);
+
 }
 
 void DebugHud::draw()
@@ -41,5 +57,6 @@ void DebugHud::draw()
 	glActiveTexture(GL_TEXTURE0);
     _window->pushGLStates();
     _window->draw(_debugText);
+    _window->draw(_objectText);
 	_window->popGLStates();
 }

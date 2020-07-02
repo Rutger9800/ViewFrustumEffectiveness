@@ -4,6 +4,7 @@
 #include <GL/glew.h>
 #include "glm.hpp"
 #include "../_vs2015/Classes/Frustum.hpp"
+#include"mge/util/DebugHud.hpp"
 
 class World;
 class GameObject;
@@ -76,7 +77,7 @@ public:
 	 * Helper method to render debug info for a mesh
 	 */
 	void renderMeshDebugInfo(Mesh* pMesh, const glm::mat4& pModelMatrix, const glm::mat4& pViewMatrix, const glm::mat4& pProjectionMatrix);
-
+	void renderObjectsInfo(DebugHud* pHud);
 protected:
 
 	/**
@@ -95,6 +96,7 @@ protected:
 	void renderChildren(World* pWorld, GameObject* pGameObject, AbstractMaterial* pMaterial, const glm::mat4& pModelMatrix, const glm::mat4& pViewMatrix, const glm::mat4& pProjectionMatrix, bool pRecursive);
 private:
 	Frustum ViewFrustum;
+	int ObjInView, ObjInScene = 0;
 };
 
 #endif // RENDERER_HPP

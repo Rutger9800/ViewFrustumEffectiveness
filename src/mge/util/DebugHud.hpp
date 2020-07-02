@@ -15,6 +15,7 @@ class DebugHud
 		void draw();
 
 		void setDebugInfo (std::string pInfo);
+        void setObjectsInfo(std::string pInfo);
 
 	private:
 		sf::RenderWindow * _window;
@@ -23,8 +24,10 @@ class DebugHud
 
         sf::Font _font;
         sf::Text _debugText;
+        sf::Text _objectText;
 
         void _createDebugHud();
+        void _createObjectsHud();
 
         DebugHud(const DebugHud&);
         DebugHud& operator=(const DebugHud&);

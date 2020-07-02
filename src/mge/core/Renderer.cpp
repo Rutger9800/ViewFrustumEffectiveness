@@ -37,6 +37,8 @@ void Renderer::setClearColor(GLbyte pR, GLbyte pG, GLbyte pB) {
 }
 
 void Renderer::render(World* pWorld) {
+	ObjInScene = 0;
+	ObjInView = 0;
 	render(pWorld, pWorld, nullptr, pWorld->getMainCamera(), true);
 }
 
@@ -54,11 +56,12 @@ void Renderer::render(World* pWorld, GameObject* pGameObject, AbstractMaterial* 
 }
 
 void Renderer::renderSelf(World* pWorld, GameObject* pGameObject, AbstractMaterial* pMaterial, const glm::mat4& pModelMatrix, const glm::mat4& pViewMatrix, const glm::mat4& pProjectionMatrix) {
+	ObjInScene++;
 	if (!ViewFrustum.SphereIntersect(&pGameObject->getLocalPosition(), 1.0f))//LOCAL POSITION ASSUMES THE GAMEOBJECT IS IN WORLDSPACE!!
 	{
-		//std::cout << pGameObject->getName() << " did not get rendered" << std::endl;
 		return;
 	}
+	ObjInView++;
 	render(pWorld, pGameObject->getMesh(), pMaterial, pModelMatrix, pViewMatrix, pProjectionMatrix);
 	if (debug) renderMeshDebugInfo(pGameObject->getMesh(), pModelMatrix, pViewMatrix, pProjectionMatrix);
 }
@@ -81,5 +84,10 @@ void Renderer::render(World* pWorld, Mesh* pMesh, AbstractMaterial* pMaterial, c
 
 void Renderer::renderMeshDebugInfo(Mesh* pMesh, const glm::mat4& pModelMatrix, const glm::mat4& pViewMatrix, const glm::mat4& pProjectionMatrix) {
 	if (pMesh != nullptr) pMesh->drawDebugInfo(pModelMatrix, pViewMatrix, pProjectionMatrix);
+}
+
+void Renderer::renderObjectsInfo(DebugHud* pHud)
+{
+	pHud->setObjectsInfo("OBJ counter: View/Scene - " + std::to_string(ObjInView) + "/" + std::to_string(ObjInScene));
 }
 

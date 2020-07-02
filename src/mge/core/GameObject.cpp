@@ -189,7 +189,6 @@ void GameObject::update(float pStep)
 
 void GameObject::_setWorldRecursively (World* pWorld) {
     _world = pWorld;
-
     for (int i = _children.size()-1; i >= 0; --i ) {
         _children[i]->_setWorldRecursively (pWorld);
     }

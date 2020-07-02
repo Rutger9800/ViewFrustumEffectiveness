@@ -84,6 +84,7 @@ void SpecialScene::_initializeScene()
 void SpecialScene::_render()
 {
 	AbstractGame::_render();
+	_renderer->renderObjectsInfo(_hud);
 	glClearColor(0, 0.5, 1, 0.5);
 	_updateHud();
 }
@@ -92,7 +93,7 @@ void SpecialScene::_updateHud()
 {
 	std::string debugInfo = "";
 	debugInfo += std::string("FPS:") + std::to_string((int)_fps) + "\n";
-
+	//_hud->setObjectsInfo("OBJs Scene" + std::to_string(_world->getChildCount()));
 	_hud->setDebugInfo(debugInfo);
 	_hud->draw();
 }
