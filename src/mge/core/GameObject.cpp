@@ -1,6 +1,8 @@
 #include <iostream>
 #include "GameObject.hpp"
 #include "mge/behaviours/AbstractBehaviour.hpp"
+#include "mge/materials/AbstractMaterial.hpp"
+#include "../_vs2015/Classes/Frustum.hpp"
 
 GameObject::GameObject(const std::string& pName, const glm::vec3& pPosition, Mesh* pMesh, AbstractMaterial* pMat, AbstractBehaviour* pBehave )
 :	_name( pName ), _transform( glm::translate( pPosition ) ), _parent(nullptr), _children(),
@@ -178,6 +180,10 @@ void GameObject::update(float pStep)
 
     for (int i = _children.size()-1; i >= 0; --i ) {
         _children[i]->update(pStep);
+    }
+    if (_material) {
+        
+
     }
 }
 

@@ -3,6 +3,7 @@
 
 #include <GL/glew.h>
 #include "glm.hpp"
+#include "../_vs2015/Classes/Frustum.hpp"
 
 class World;
 class GameObject;
@@ -92,6 +93,8 @@ protected:
 
 	//calls render on each and every child gameobject, material cannot be null!
 	void renderChildren(World* pWorld, GameObject* pGameObject, AbstractMaterial* pMaterial, const glm::mat4& pModelMatrix, const glm::mat4& pViewMatrix, const glm::mat4& pProjectionMatrix, bool pRecursive);
+private:
+	Frustum ViewFrustum;
 };
 
 #endif // RENDERER_HPP

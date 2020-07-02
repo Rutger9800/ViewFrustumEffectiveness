@@ -19,14 +19,14 @@ class World;
  */
 class AbstractMaterial
 {
-    public:
-        AbstractMaterial();
-        virtual ~AbstractMaterial();
+public:
+	AbstractMaterial();
+	virtual ~AbstractMaterial();
+	/**
+	 * Render the given mesh in the given world using the given mvp matrices. Implement in subclass.
+	 */
+	virtual void render(World* pWorld, Mesh* pMesh, const glm::mat4& pModelMatrix, const glm::mat4& pViewMatrix, const glm::mat4& pPerspectiveMatrix) = 0;
 
-        /**
-         * Render the given mesh in the given world using the given mvp matrices. Implement in subclass.
-         */
-        virtual void render(World* pWorld, Mesh* pMesh, const glm::mat4& pModelMatrix, const glm::mat4& pViewMatrix, const glm::mat4& pPerspectiveMatrix) = 0;
 };
 
 #endif // ABSTRACTMATERIAL_HPP

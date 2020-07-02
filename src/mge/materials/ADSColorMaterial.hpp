@@ -5,6 +5,7 @@
 #include "GL/glew.h"
 #include "mge/core/Camera.hpp"
 #include "../_vs2015/Classes/Frustum.hpp"
+#include "mge/core/GameObject.hpp"
 
 
 class ShaderProgram;
@@ -21,12 +22,15 @@ class ADSColorMaterial : public AbstractMaterial
         virtual ~ADSColorMaterial();
 
         virtual void render(World* pWorld, Mesh* pMesh, const glm::mat4& pModelMatrix, const glm::mat4& pViewMatrix, const glm::mat4& pProjectionMatrix) override;
+        GameObject* GetObject();
+        void SetObject(GameObject* object);
 
     protected:
     private:
         static ShaderProgram* _shader;
         static void _initShader();
         Frustum ViewFrustum;
+        GameObject* gameObject;
 
         //in this example we cache all identifiers for uniforms & attributes
         static GLint _uMVPMatrix, _uColor, _aVertex

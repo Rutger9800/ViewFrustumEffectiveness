@@ -13,7 +13,7 @@ void World::setMainCamera (Camera* pCamera) {
     if (pCamera != NULL) _mainCamera = pCamera;
 }
 
-Camera* World::getMainCamera () {
+Camera* World::getMainCamera () const {
     return _mainCamera;
 }
 

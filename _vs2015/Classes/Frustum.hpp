@@ -12,8 +12,9 @@
 class Frustum
 {
 public: 
+	Frustum() {}
 	Frustum(const glm::mat4x4& m);
-	bool SphereIntersect(const glm::vec3 vecCenter, float flRadius);
+	bool SphereIntersect(glm::vec3* vecCenter, float flRadius);
 
 	Plane p[6];
 

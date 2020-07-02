@@ -64,11 +64,7 @@ void ADSColorMaterial::_initShader() {
 void ADSColorMaterial::render(World* pWorld, Mesh* pMesh, const glm::mat4& pModelMatrix, const glm::mat4& pViewMatrix, const glm::mat4& pProjectionMatrix) {
 	/*if (mainCam == nullptr) */mainCam = pWorld->getMainCamera();
 
-	ViewFrustum = Frustum(mainCam->getProjection());
-
-	//TODO: get object position over here
-	//if(!ViewFrustum.SphereIntersect())
-
+	
 	_shader->use();
 
 	//Print the number of lights in the scene and the position of the first light.
@@ -95,3 +91,4 @@ void ADSColorMaterial::render(World* pWorld, Mesh* pMesh, const glm::mat4& pMode
 	//now inform mesh of where to stream its data
 	pMesh->streamToOpenGL(_aVertex, _aNormal, _aUV);
 }
+
