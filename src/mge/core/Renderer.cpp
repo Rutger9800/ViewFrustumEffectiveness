@@ -42,11 +42,13 @@ void Renderer::render(World* pWorld) {
 
 void Renderer::render(World* pWorld, GameObject* pGameObject, AbstractMaterial* pMaterial, Camera* pCamera, bool pRecursive)
 {
+	glm::mat4 projMat = pCamera->getProjection();
+	glm::mat4 viewMat = glm::inverse(pCamera->getWorldTransform());
+	ViewFrustum = Frustum((projMat * viewMat));
 	render(pWorld, pGameObject, pMaterial, pGameObject->getWorldTransform(), glm::inverse(pCamera->getWorldTransform()), pCamera->getProjection(), pRecursive);
 }
 
 void Renderer::render(World* pWorld, GameObject* pGameObject, AbstractMaterial* pMaterial, const glm::mat4& pModelMatrix, const glm::mat4& pViewMatrix, const glm::mat4& pProjectionMatrix, bool pRecursive) {
-	ViewFrustum = Frustum((pProjectionMatrix * pViewMatrix));
 	renderSelf(pWorld, pGameObject, pMaterial == nullptr?pGameObject->getMaterial():pMaterial, pModelMatrix, pViewMatrix, pProjectionMatrix);
 	if (pRecursive) renderChildren(pWorld, pGameObject, pMaterial, pModelMatrix, pViewMatrix, pProjectionMatrix, pRecursive);
 }
