@@ -46,13 +46,13 @@ void Renderer::render(World* pWorld, GameObject* pGameObject, AbstractMaterial* 
 }
 
 void Renderer::render(World* pWorld, GameObject* pGameObject, AbstractMaterial* pMaterial, const glm::mat4& pModelMatrix, const glm::mat4& pViewMatrix, const glm::mat4& pProjectionMatrix, bool pRecursive) {
+	ViewFrustum = Frustum((pProjectionMatrix * pViewMatrix));
 	renderSelf(pWorld, pGameObject, pMaterial == nullptr?pGameObject->getMaterial():pMaterial, pModelMatrix, pViewMatrix, pProjectionMatrix);
 	if (pRecursive) renderChildren(pWorld, pGameObject, pMaterial, pModelMatrix, pViewMatrix, pProjectionMatrix, pRecursive);
 }
 
 void Renderer::renderSelf(World* pWorld, GameObject* pGameObject, AbstractMaterial* pMaterial, const glm::mat4& pModelMatrix, const glm::mat4& pViewMatrix, const glm::mat4& pProjectionMatrix) {
-	ViewFrustum = Frustum((pProjectionMatrix * pViewMatrix * pModelMatrix));
-	if (!ViewFrustum.SphereIntersect(&pGameObject->getWorldPosition(), 1.0f))
+	if (!ViewFrustum.SphereIntersect(&pGameObject->getLocalPosition(), 1.0f))//LOCAL POSITION ASSUMES THE GAMEOBJECT IS IN WORLDSPACE!!
 	{
 		//std::cout << pGameObject->getName() << " did not get rendered" << std::endl;
 		return;

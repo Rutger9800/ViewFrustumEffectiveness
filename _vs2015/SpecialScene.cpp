@@ -62,18 +62,17 @@ void SpecialScene::_initializeScene()
 	plane->scale(glm::vec3(20, 20, 20));
 	_world->add(plane);
 
-	GameObject* sphere = new GameObject("spherio", glm::vec3(1, 0, 1), sphereMesh, grayMat);
+	GameObject* sphere = new GameObject("spherio", glm::vec3(0, 0, 1), sphereMesh, grayMat, keyBehave);
 	_world->add(sphere);
 
 	//Light
-	Light* pointLight = new Light("lightOne", glm::vec3(-4, 0, 2), glm::vec3(1, 1, 1));
-	pointLight->setBehaviour(keyBehave);
+	Light* pointLight = new Light("lightOne", glm::vec3(-4, 2, 8), glm::vec3(1, 1, 1));
 	_world->add(pointLight);
 
 	//-camera
 	float camDistanceToTarget = 10.0f;
-	CameraBehaviour* camBehave = new CameraBehaviour(camDistanceToTarget, 15.0f, 12.0f, pointLight, _window);
-	Camera* camera = new Camera("camera", glm::vec3(0, 2, 0));
+	CameraBehaviour* camBehave = new CameraBehaviour(camDistanceToTarget, 15.0f, 12.0f, sphere, _window);
+	Camera* camera = new Camera("camera", glm::vec3(1, 0.5f, 1));
 	camera->setBehaviour(camBehave);
 	_world->add(camera);
 	_world->setMainCamera(camera);
