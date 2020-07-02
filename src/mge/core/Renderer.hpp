@@ -78,6 +78,7 @@ public:
 	 */
 	void renderMeshDebugInfo(Mesh* pMesh, const glm::mat4& pModelMatrix, const glm::mat4& pViewMatrix, const glm::mat4& pProjectionMatrix);
 	void renderObjectsInfo(DebugHud* pHud);
+	void toggleViewFrustumCulling(bool toggle);
 protected:
 
 	/**
@@ -97,6 +98,7 @@ protected:
 private:
 	Frustum ViewFrustum;
 	int ObjInView, ObjInScene = 0;
+	bool viewFrustumCulling = true;
 };
 
 #endif // RENDERER_HPP

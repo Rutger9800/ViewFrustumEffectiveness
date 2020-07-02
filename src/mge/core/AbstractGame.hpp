@@ -55,6 +55,7 @@ class AbstractGame
 		Renderer* _renderer;        //the renderer class to render the world
 		World* _world;              //the root game object that represents our scene
 		float _fps;                 //stores the real fps
+        float _frameTime;           //stores frametime every frame
 
     private:
         AbstractGame(const AbstractGame&);

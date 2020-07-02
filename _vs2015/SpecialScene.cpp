@@ -60,10 +60,10 @@ void SpecialScene::_initializeScene()
 	//   \/ SCENE setup \/
 	GameObject* plane = new GameObject("grassplane", glm::vec3(1, -1, 0), planeMeshDefault, greenMat);
 	plane->scale(glm::vec3(20, 20, 20));
-	_world->add(plane);
+	//_world->add(plane);
 
 	GameObject* sphere = new GameObject("spherio", glm::vec3(0, 0, 1), sphereMesh, grayMat, keyBehave);
-	_world->add(sphere);
+	//_world->add(sphere);
 
 	//Light
 	Light* pointLight = new Light("lightOne", glm::vec3(-4, 2, 8), glm::vec3(1, 1, 1));
@@ -77,8 +77,9 @@ void SpecialScene::_initializeScene()
 	_world->add(camera);
 	_world->setMainCamera(camera);
 
-	WorldGen* WorldGenerator = new WorldGen(sphereMesh);//call the world generator to create the given mesh x amount of times
+	WorldGen* WorldGenerator = new WorldGen(sphereMesh,2500);//call the world generator to create the given mesh x amount of times
 	_world->add(WorldGenerator);
+	_renderer->toggleViewFrustumCulling(true);
 }
 
 void SpecialScene::_render()
@@ -92,7 +93,7 @@ void SpecialScene::_render()
 void SpecialScene::_updateHud()
 {
 	std::string debugInfo = "";
-	debugInfo += std::string("FPS:") + std::to_string((int)_fps) + "\n";
+	debugInfo += std::string("FPS: ") + std::to_string((int)_fps) + " | FrameTime: " + std::to_string(_frameTime) + "\n";
 	//_hud->setObjectsInfo("OBJs Scene" + std::to_string(_world->getChildCount()));
 	_hud->setDebugInfo(debugInfo);
 	_hud->draw();

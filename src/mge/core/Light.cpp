@@ -7,7 +7,7 @@
 Light::Light(const std::string& pName, const glm::vec3& pPosition, glm::vec3& aColor) :GameObject(pName, pPosition)
 {
 	color = aColor;
-	_setVisibleCube(aColor);
+	//_setVisibleCube(aColor);
 }
 
 glm::vec3 Light::getColor()

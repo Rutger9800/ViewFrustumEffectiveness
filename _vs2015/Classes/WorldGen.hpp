@@ -11,7 +11,7 @@ Class that generates the objects in the world so we're able to test the view fru
 class WorldGen : public GameObject
 {
 public:
-	WorldGen(Mesh* objectToSpawn);
+	WorldGen(Mesh* objectToSpawn, int amountToSpawn);
 	~WorldGen();
 
 

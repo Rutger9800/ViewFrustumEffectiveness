@@ -46,7 +46,9 @@ void Renderer::render(World* pWorld, GameObject* pGameObject, AbstractMaterial* 
 {
 	glm::mat4 projMat = pCamera->getProjection();
 	glm::mat4 viewMat = glm::inverse(pCamera->getWorldTransform());
-	ViewFrustum = Frustum((projMat * viewMat));
+
+	if(viewFrustumCulling)	ViewFrustum = Frustum((projMat * viewMat));
+
 	render(pWorld, pGameObject, pMaterial, pGameObject->getWorldTransform(), viewMat, projMat, pRecursive);
 }
 
@@ -57,11 +59,12 @@ void Renderer::render(World* pWorld, GameObject* pGameObject, AbstractMaterial* 
 
 void Renderer::renderSelf(World* pWorld, GameObject* pGameObject, AbstractMaterial* pMaterial, const glm::mat4& pModelMatrix, const glm::mat4& pViewMatrix, const glm::mat4& pProjectionMatrix) {
 	ObjInScene++;
-	if (!ViewFrustum.SphereIntersect(&pGameObject->getLocalPosition(), 1.0f))//LOCAL POSITION ASSUMES THE GAMEOBJECT IS IN WORLDSPACE!!
+	if (viewFrustumCulling) 
 	{
-		return;
+		//returns the function so this object wont get rendered if it's outside the view, assuming the object is a sphere with radius 1.0f 
+		if (!ViewFrustum.SphereIntersect(&pGameObject->getLocalPosition(), 1.0f)) return;//LOCAL POSITION ASSUMES THE GAMEOBJECT IS IN WORLDSPACE!!
+		ObjInView++;
 	}
-	ObjInView++;
 	render(pWorld, pGameObject->getMesh(), pMaterial, pModelMatrix, pViewMatrix, pProjectionMatrix);
 	if (debug) renderMeshDebugInfo(pGameObject->getMesh(), pModelMatrix, pViewMatrix, pProjectionMatrix);
 }
@@ -79,7 +82,11 @@ void Renderer::renderChildren(World* pWorld, GameObject* pGameObject, AbstractMa
 }
 
 void Renderer::render(World* pWorld, Mesh* pMesh, AbstractMaterial* pMaterial, const glm::mat4& pModelMatrix, const glm::mat4& pViewMatrix, const glm::mat4& pProjectionMatrix) {
-	if (pMesh != nullptr && pMaterial != nullptr) pMaterial->render(pWorld, pMesh, pModelMatrix, pViewMatrix, pProjectionMatrix);
+	if (pMesh != nullptr && pMaterial != nullptr)
+	{
+		ObjInView++;
+		pMaterial->render(pWorld, pMesh, pModelMatrix, pViewMatrix, pProjectionMatrix);
+	}
 }
 
 void Renderer::renderMeshDebugInfo(Mesh* pMesh, const glm::mat4& pModelMatrix, const glm::mat4& pViewMatrix, const glm::mat4& pProjectionMatrix) {
@@ -88,6 +95,12 @@ void Renderer::renderMeshDebugInfo(Mesh* pMesh, const glm::mat4& pModelMatrix, c
 
 void Renderer::renderObjectsInfo(DebugHud* pHud)
 {
-	pHud->setObjectsInfo("OBJ counter: View/Scene - " + std::to_string(ObjInView) + "/" + std::to_string(ObjInScene));
+	if (viewFrustumCulling) pHud->setObjectsInfo("OBJ counter: View/Scene - " + std::to_string(ObjInView) + "/" + std::to_string(ObjInScene) + "\nFRUSTUM CULLING ON");
+	else pHud->setObjectsInfo("OBJ counter: View/Scene" + std::to_string(ObjInView) + "/" + std::to_string(ObjInScene) + "\nFRUSTUM CULLING OFF");
+}
+
+void Renderer::toggleViewFrustumCulling(bool toggle)
+{
+	viewFrustumCulling = toggle;
 }
 
