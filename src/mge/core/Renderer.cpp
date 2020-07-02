@@ -51,10 +51,12 @@ void Renderer::render(World* pWorld, GameObject* pGameObject, AbstractMaterial* 
 }
 
 void Renderer::renderSelf(World* pWorld, GameObject* pGameObject, AbstractMaterial* pMaterial, const glm::mat4& pModelMatrix, const glm::mat4& pViewMatrix, const glm::mat4& pProjectionMatrix) {
-	ViewFrustum = Frustum(pProjectionMatrix);
-	//TODO: get object position over here
-	if (!ViewFrustum.SphereIntersect(&pGameObject->getWorldPosition(), 1.0f)) return;
-
+	ViewFrustum = Frustum((pProjectionMatrix * pViewMatrix * pModelMatrix));
+	if (!ViewFrustum.SphereIntersect(&pGameObject->getWorldPosition(), 1.0f))
+	{
+		//std::cout << pGameObject->getName() << " did not get rendered" << std::endl;
+		return;
+	}
 	render(pWorld, pGameObject->getMesh(), pMaterial, pModelMatrix, pViewMatrix, pProjectionMatrix);
 	if (debug) renderMeshDebugInfo(pGameObject->getMesh(), pModelMatrix, pViewMatrix, pProjectionMatrix);
 }
