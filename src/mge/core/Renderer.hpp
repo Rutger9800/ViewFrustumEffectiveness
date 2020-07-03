@@ -98,7 +98,7 @@ protected:
 	void renderChildren(World* pWorld, GameObject* pGameObject, AbstractMaterial* pMaterial, const glm::mat4& pModelMatrix, const glm::mat4& pViewMatrix, const glm::mat4& pProjectionMatrix, bool pRecursive);
 private:
 	Frustum ViewFrustum;
-	int ObjInView, ObjInScene = 0;
+	int ObjInView = 0, ObjInScene = 0;
 	bool viewFrustumCulling = true;
 };
 

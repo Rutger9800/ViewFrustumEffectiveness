@@ -37,12 +37,14 @@ void SpecialScene::initialize()
 	std::cout << "initializing HUD" << std::endl;
 	_hud = new DebugHud(_window);
 	std::cout << "Hud initialized" << std::endl << std::endl;
+	maxSeconds = 10;
+	storeTime = 0;
 }
 
 void SpecialScene::_initializeScene()
 {
-	objCreatedByGen = 25;
-	VFCbool = false;
+	objCreatedByGen = 400;
+	VFCbool = true;
 	_csv = new CSVwriter("../_vs2015/csvfiles/" + std::to_string(objCreatedByGen) + " VFC " + std::to_string(VFCbool) + ".csv");
 
 	//meshes
@@ -81,15 +83,24 @@ void SpecialScene::_initializeScene()
 	_world->add(camera);
 	_world->setMainCamera(camera);
 
-	WorldGen* WorldGenerator = new WorldGen(sphereMesh,objCreatedByGen);//call the world generator to create the given mesh x amount of times
+	WorldGen* WorldGenerator = new WorldGen(sphereMesh, objCreatedByGen);//call the world generator to create the given mesh x amount of times
 	_world->add(WorldGenerator);
 	_renderer->toggleViewFrustumCulling(VFCbool);
 }
 
 void SpecialScene::_render()
 {
+	//first run without VFC then after time expired with VFC
+	
+	if (_countSeconds > maxSeconds) _window->close();
+
+
 	AbstractGame::_render();
-	_renderer->renderObjectsInfo(_hud,_csv);
+	//send info once per second
+	if (_countSeconds == 0 || storeTime != _countSeconds) {
+		_renderer->renderObjectsInfo(_hud, _csv);
+		storeTime = _countSeconds;
+	}
 	glClearColor(0, 0.5, 1, 0.5);
 	_updateHud();
 }
@@ -102,6 +113,7 @@ void SpecialScene::_updateHud()
 	_hud->setDebugInfo(debugInfo);
 	_hud->draw();
 	_csv->AddFrameTime(_fps);
+
 }
 
 SpecialScene::~SpecialScene()

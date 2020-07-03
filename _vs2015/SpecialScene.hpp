@@ -8,7 +8,7 @@
 class DebugHud;
 class ShaderUtil;
 
-class SpecialScene: public AbstractGame
+class SpecialScene : public AbstractGame
 {
 
 public:
@@ -22,12 +22,13 @@ protected:
 
 	virtual void _render();
 
-private: 
+private:
 	DebugHud* _hud;
 	CSVwriter* _csv;
-	int objCreatedByGen= 66;
+	int objCreatedByGen = 66;//if a number around 66 shows up, something is wrong
 	bool VFCbool = false;
-
+	int storeTime = 0;//used to make sure we only write fps once every second to file, to reduce file size and unnecesary readings
+	int maxSeconds = 0;
 	void _updateHud();
 
 	SpecialScene(const SpecialScene&);

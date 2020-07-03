@@ -94,7 +94,7 @@ void AbstractGame::run()
 	sf::Time timePerFrame = sf::seconds(1.0f / 500.0f);
 	sf::Clock updateClock;
 	sf::Time timeSinceLastUpdate = sf::Time::Zero;
-
+	_countSeconds = 0;
 	while (_window->isOpen()) {
 		timeSinceLastUpdate += updateClock.restart();
 
@@ -116,6 +116,7 @@ void AbstractGame::run()
 			if (timeSinceLastFPSCalculation > 1) {
 				_fps = frameCount / timeSinceLastFPSCalculation;
 				_frameTime = 1/_fps;
+				_countSeconds++;
 				timeSinceLastFPSCalculation -= 1;
 				frameCount = 0;
 			}
