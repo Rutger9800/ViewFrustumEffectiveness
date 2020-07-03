@@ -115,7 +115,7 @@ void AbstractGame::run()
 			timeSinceLastFPSCalculation += renderClock.restart().asSeconds();
 			if (timeSinceLastFPSCalculation > 1) {
 				_fps = frameCount / timeSinceLastFPSCalculation;
-				_frameTime = timeSinceLastUpdate.asSeconds();
+				_frameTime = 1/_fps;
 				timeSinceLastFPSCalculation -= 1;
 				frameCount = 0;
 			}
