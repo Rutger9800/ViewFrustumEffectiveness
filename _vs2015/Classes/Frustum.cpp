@@ -36,18 +36,21 @@ Frustum::Frustum(const glm::mat4x4& m)
 	for (int i = 0; i < 6; i++)
 		p[i].Normalize();//normalize the normals of the planes
 }
-
+/*
+Check if a sphere intersects with the view frustum
+*/
 bool Frustum::SphereIntersect(glm::vec3* vecCenter, float objRadius)
 {
 
 	for (int i = 0; i < 6; i++)//loop through the 6 planes that make up the view frustum
 	{
 		//testing the plane with a sphere by projecting the center vector onto the plane normals 
-		// pointP dot normalN plus distance plus radius // if larger than 0 it's inside the plane
-		if (glm::dot(*vecCenter, p[i].n) + p[i].d + objRadius <= 0) {
+		// pointP dot normalN plus distance plus radius // if larger than 0 it's on the inside of the plane
+		if (glm::dot(*vecCenter, p[i].n) + p[i].d + objRadius <= 0) { 
+			//basically, if the projection of vecPosition onto the plane normal is not larger in negative than distance+radius it's on the inside of the plane
 			return false;
 		}
 	}
-
+	//if it's on the inside of all 6 planes we're good to go and return true.
 	return true;
 }
