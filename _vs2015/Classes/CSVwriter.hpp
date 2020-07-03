@@ -9,7 +9,7 @@ public:
 	CSVwriter(std::string pFileName);
 	~CSVwriter();
 
-	void AddFrameTime(int pFrameTime);
+	void AddFrameTime(float pFrameTime);
 	void AddObjInView(int pObjInView);
 private:
 	std::ofstream statFile;
