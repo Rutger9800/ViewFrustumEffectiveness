@@ -33,17 +33,17 @@ SpecialScene::SpecialScene() :AbstractGame(), _hud(0)
 
 void SpecialScene::initialize()
 {
-	AbstractGame::initialize();
+	AbstractGame::initialize(); 
 	std::cout << "initializing HUD" << std::endl;
 	_hud = new DebugHud(_window);
 	std::cout << "Hud initialized" << std::endl << std::endl;
-	maxSeconds = 10;
+	maxSeconds = 22;
 	storeTime = 0;
 }
 
 void SpecialScene::_initializeScene()
 {
-	objCreatedByGen = 400;
+	objCreatedByGen = 1600;
 	VFCbool = true;
 	_csv = new CSVwriter("../_vs2015/csvfiles/" + std::to_string(objCreatedByGen) + " VFC " + std::to_string(VFCbool) + ".csv");
 
