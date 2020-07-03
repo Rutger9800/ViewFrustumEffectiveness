@@ -25,6 +25,8 @@ protected:
 private: 
 	DebugHud* _hud;
 	CSVwriter* _csv;
+	int objCreatedByGen= 66;
+	bool VFCbool = false;
 
 	void _updateHud();
 

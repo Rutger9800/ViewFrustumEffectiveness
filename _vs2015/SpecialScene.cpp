@@ -37,11 +37,13 @@ void SpecialScene::initialize()
 	std::cout << "initializing HUD" << std::endl;
 	_hud = new DebugHud(_window);
 	std::cout << "Hud initialized" << std::endl << std::endl;
-	_csv = new CSVwriter("../_vs2015/csvfiles/5000cullingoff.csv");
 }
 
 void SpecialScene::_initializeScene()
 {
+	objCreatedByGen = 25;
+	VFCbool = false;
+	_csv = new CSVwriter("../_vs2015/csvfiles/" + std::to_string(objCreatedByGen) + " VFC " + std::to_string(VFCbool) + ".csv");
 
 	//meshes
 	Mesh* planeMeshDefault = Mesh::load(config::MGE_MODEL_PATH + "plane_8192.obj");
@@ -79,9 +81,9 @@ void SpecialScene::_initializeScene()
 	_world->add(camera);
 	_world->setMainCamera(camera);
 
-	WorldGen* WorldGenerator = new WorldGen(sphereMesh,5000);//call the world generator to create the given mesh x amount of times
+	WorldGen* WorldGenerator = new WorldGen(sphereMesh,objCreatedByGen);//call the world generator to create the given mesh x amount of times
 	_world->add(WorldGenerator);
-	_renderer->toggleViewFrustumCulling(false);
+	_renderer->toggleViewFrustumCulling(VFCbool);
 }
 
 void SpecialScene::_render()
@@ -99,7 +101,7 @@ void SpecialScene::_updateHud()
 	//_hud->setObjectsInfo("OBJs Scene" + std::to_string(_world->getChildCount()));
 	_hud->setDebugInfo(debugInfo);
 	_hud->draw();
-	_csv->AddFrameTime(_frameTime);
+	_csv->AddFrameTime(_fps);
 }
 
 SpecialScene::~SpecialScene()

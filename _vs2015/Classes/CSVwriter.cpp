@@ -3,11 +3,12 @@
 CSVwriter::CSVwriter(std::string pFileName)
 {
 	statFile.open(pFileName);
+	std::locale myLocale("");
 
 	if (statFile)
 	{
 		std::cout << "Found CSV File" << std::endl;
-		statFile << "Objects in View; FrameTime\n";
+		statFile << "Objects in View; FPS\n";
 	}
 	else 
 	{
@@ -15,6 +16,7 @@ CSVwriter::CSVwriter(std::string pFileName)
 		std::ofstream statFile(pFileName + "new.csv");
 	}
 
+	statFile.imbue(myLocale);
 }
 
 
