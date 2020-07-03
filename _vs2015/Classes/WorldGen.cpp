@@ -7,7 +7,7 @@
 */
 WorldGen::WorldGen(Mesh* meshToSpawn, int amountToSpawn) :GameObject("WorldGen", glm::vec3(0,0,0))
 {
-	AbstractMaterial* orangeMaterial = new ADSColorMaterial(glm::vec3(1,0.5f,0), 1.0f, 32, 1.0f);
+	AbstractMaterial* orangeMaterial = new ADSColorMaterial(glm::vec3(1,0.5f,0), 0.8f, 32, 1.0f);
 	int objRoot = glm::sqrt(amountToSpawn);// 576 is 24 squared, creating 576 objects
 	int objAmountEachDir = objRoot / 2;
 	int objectCounter = 0;

@@ -77,7 +77,7 @@ void SpecialScene::_initializeScene()
 	_world->add(camera);
 	_world->setMainCamera(camera);
 
-	WorldGen* WorldGenerator = new WorldGen(sphereMesh,2500);//call the world generator to create the given mesh x amount of times
+	WorldGen* WorldGenerator = new WorldGen(sphereMesh,5000);//call the world generator to create the given mesh x amount of times
 	_world->add(WorldGenerator);
 	_renderer->toggleViewFrustumCulling(true);
 }

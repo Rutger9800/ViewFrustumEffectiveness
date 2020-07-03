@@ -25,6 +25,10 @@ void CameraBehaviour::update(float pStep)
 	float windowCenterY = _window->getPosition().y + (config::SCREENY / 2.0f);
 	targetPos = target->getWorldPosition();
 
+	//FOR STANDARD TESTING:
+	_owner->translate(glm::vec3(-rotationSpeed * pStep, 0.0f, 0.0f));
+
+
 	//move in a direction here, later on correct it with lookat function
 	if (sf::Mouse::isButtonPressed(sf::Mouse::Button::Left)) {
 		if (sf::Mouse::getPosition().x < windowCenterX - mouseControlOffset) {//left side of screen

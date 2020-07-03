@@ -84,7 +84,7 @@ void Renderer::renderChildren(World* pWorld, GameObject* pGameObject, AbstractMa
 void Renderer::render(World* pWorld, Mesh* pMesh, AbstractMaterial* pMaterial, const glm::mat4& pModelMatrix, const glm::mat4& pViewMatrix, const glm::mat4& pProjectionMatrix) {
 	if (pMesh != nullptr && pMaterial != nullptr)
 	{
-		ObjInView++;
+		//ObjInView++;
 		pMaterial->render(pWorld, pMesh, pModelMatrix, pViewMatrix, pProjectionMatrix);
 	}
 }
