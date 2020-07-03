@@ -23,6 +23,9 @@
     <Filter Include="MGE Source files\mge\Shader">
       <UniqueIdentifier>{1337635a-6c90-4e65-92e0-770ce996e427}</UniqueIdentifier>
     </Filter>
+    <Filter Include="MGE Source files\myClasses">
+      <UniqueIdentifier>{f3858779-a90e-49b0-af71-6ca5eff2875b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\src\glm.hpp">
@@ -97,12 +100,17 @@
     <ClInclude Include="..\src\mge\materials\ADSColorMaterial.hpp">
       <Filter>MGE Source files\mge\materials</Filter>
     </ClInclude>
-    <ClInclude Include="Classes\WorldGen.hpp" />
     <ClInclude Include="Classes\Frustum.hpp">
-      <Filter>MGE Source files</Filter>
+      <Filter>MGE Source files\myClasses</Filter>
     </ClInclude>
     <ClInclude Include="Classes\Plane.hpp">
-      <Filter>MGE Source files</Filter>
+      <Filter>MGE Source files\myClasses</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\WorldGen.hpp">
+      <Filter>MGE Source files\myClasses</Filter>
+    </ClInclude>
+    <ClInclude Include="Classes\CSVwriter.hpp">
+      <Filter>MGE Source files\myClasses</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -175,14 +183,17 @@
     <ClCompile Include="..\src\mge\materials\ADSColorMaterial.cpp">
       <Filter>MGE Source files\mge\materials</Filter>
     </ClCompile>
-    <ClCompile Include="Classes\WorldGen.cpp">
-      <Filter>MGE Source files</Filter>
-    </ClCompile>
     <ClCompile Include="Classes\Frustum.cpp">
-      <Filter>MGE Source files</Filter>
+      <Filter>MGE Source files\myClasses</Filter>
     </ClCompile>
     <ClCompile Include="Classes\Plane.cpp">
-      <Filter>MGE Source files</Filter>
+      <Filter>MGE Source files\myClasses</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\WorldGen.cpp">
+      <Filter>MGE Source files\myClasses</Filter>
+    </ClCompile>
+    <ClCompile Include="Classes\CSVwriter.cpp">
+      <Filter>MGE Source files\myClasses</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

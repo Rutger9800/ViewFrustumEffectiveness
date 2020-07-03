@@ -93,10 +93,11 @@ void Renderer::renderMeshDebugInfo(Mesh* pMesh, const glm::mat4& pModelMatrix, c
 	if (pMesh != nullptr) pMesh->drawDebugInfo(pModelMatrix, pViewMatrix, pProjectionMatrix);
 }
 
-void Renderer::renderObjectsInfo(DebugHud* pHud)
+void Renderer::renderObjectsInfo(DebugHud* pHud, CSVwriter* pCSV)
 {
 	if (viewFrustumCulling) pHud->setObjectsInfo("OBJ counter: View/Scene - " + std::to_string(ObjInView) + "/" + std::to_string(ObjInScene) + "\nFRUSTUM CULLING ON");
 	else pHud->setObjectsInfo("OBJ counter: View/Scene" + std::to_string(ObjInView) + "/" + std::to_string(ObjInScene) + "\nFRUSTUM CULLING OFF");
+	pCSV->AddObjInView(ObjInView);
 }
 
 void Renderer::toggleViewFrustumCulling(bool toggle)

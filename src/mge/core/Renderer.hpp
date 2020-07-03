@@ -4,6 +4,7 @@
 #include <GL/glew.h>
 #include "glm.hpp"
 #include "../_vs2015/Classes/Frustum.hpp"
+#include "../_vs2015/Classes/CSVwriter.hpp"
 #include"mge/util/DebugHud.hpp"
 
 class World;
@@ -77,7 +78,7 @@ public:
 	 * Helper method to render debug info for a mesh
 	 */
 	void renderMeshDebugInfo(Mesh* pMesh, const glm::mat4& pModelMatrix, const glm::mat4& pViewMatrix, const glm::mat4& pProjectionMatrix);
-	void renderObjectsInfo(DebugHud* pHud);
+	void renderObjectsInfo(DebugHud* pHud, CSVwriter* pCSV);
 	void toggleViewFrustumCulling(bool toggle);
 protected:
 

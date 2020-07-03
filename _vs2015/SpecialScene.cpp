@@ -37,6 +37,7 @@ void SpecialScene::initialize()
 	std::cout << "initializing HUD" << std::endl;
 	_hud = new DebugHud(_window);
 	std::cout << "Hud initialized" << std::endl << std::endl;
+	_csv = new CSVwriter("../_vs2015/csvfiles/example.csv");
 }
 
 void SpecialScene::_initializeScene()
@@ -72,7 +73,8 @@ void SpecialScene::_initializeScene()
 	//-camera
 	float camDistanceToTarget = 10.0f;
 	CameraBehaviour* camBehave = new CameraBehaviour(camDistanceToTarget, 15.0f, 12.0f, sphere, _window);
-	Camera* camera = new Camera("camera", glm::vec3(1, 0.5f, 1));
+	Camera* camera = new Camera("camera", glm::vec3(1, 0.5f, 1)
+		, glm::perspective(glm::radians(60.0f), config::SCREENX / config::SCREENY, 0.1f, 1000.0f));
 	camera->setBehaviour(camBehave);
 	_world->add(camera);
 	_world->setMainCamera(camera);
@@ -85,7 +87,7 @@ void SpecialScene::_initializeScene()
 void SpecialScene::_render()
 {
 	AbstractGame::_render();
-	_renderer->renderObjectsInfo(_hud);
+	_renderer->renderObjectsInfo(_hud,_csv);
 	glClearColor(0, 0.5, 1, 0.5);
 	_updateHud();
 }
@@ -97,6 +99,7 @@ void SpecialScene::_updateHud()
 	//_hud->setObjectsInfo("OBJs Scene" + std::to_string(_world->getChildCount()));
 	_hud->setDebugInfo(debugInfo);
 	_hud->draw();
+	_csv->AddFrameTime(_frameTime);
 }
 
 SpecialScene::~SpecialScene()

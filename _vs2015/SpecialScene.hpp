@@ -3,6 +3,7 @@
 
 #include "mge/core/AbstractGame.hpp"
 #include"mge/materials/ADSColorMaterial.hpp"
+#include "Classes/CSVwriter.hpp"
 
 class DebugHud;
 class ShaderUtil;
@@ -23,6 +24,7 @@ protected:
 
 private: 
 	DebugHud* _hud;
+	CSVwriter* _csv;
 
 	void _updateHud();
 
