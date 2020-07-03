@@ -40,7 +40,7 @@ void CSVwriter::sendInfoToFile()
 	objsReceived = false;
 	statFile << std::to_string(objInView) + ";";
 	statFile << std::to_string(fps) << "\n";//frametime gets called later in the frame calculations so this ends the current row
-	std::cout << "SEND INFO TO FILE" << std::endl;
+	//std::cout << "SEND INFO TO FILE" << std::endl;
 }
 
 CSVwriter::~CSVwriter()
