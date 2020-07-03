@@ -37,7 +37,7 @@ void SpecialScene::initialize()
 	std::cout << "initializing HUD" << std::endl;
 	_hud = new DebugHud(_window);
 	std::cout << "Hud initialized" << std::endl << std::endl;
-	_csv = new CSVwriter("../_vs2015/csvfiles/example.csv");
+	_csv = new CSVwriter("../_vs2015/csvfiles/5000cullingoff.csv");
 }
 
 void SpecialScene::_initializeScene()
@@ -81,7 +81,7 @@ void SpecialScene::_initializeScene()
 
 	WorldGen* WorldGenerator = new WorldGen(sphereMesh,5000);//call the world generator to create the given mesh x amount of times
 	_world->add(WorldGenerator);
-	_renderer->toggleViewFrustumCulling(true);
+	_renderer->toggleViewFrustumCulling(false);
 }
 
 void SpecialScene::_render()

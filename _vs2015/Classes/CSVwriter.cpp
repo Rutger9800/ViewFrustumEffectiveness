@@ -9,7 +9,11 @@ CSVwriter::CSVwriter(std::string pFileName)
 		std::cout << "Found CSV File" << std::endl;
 		statFile << "Objects in View; FrameTime\n";
 	}
-	else std::cout << "Couldn't open file: " << pFileName << std::endl;
+	else 
+	{
+		std::cout << "Couldn't open file: " << pFileName << " -- Creating new file" << std::endl;
+		std::ofstream statFile(pFileName + "new.csv");
+	}
 
 }
 
