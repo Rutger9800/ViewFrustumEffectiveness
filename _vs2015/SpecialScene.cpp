@@ -43,7 +43,7 @@ void SpecialScene::initialize()
 
 void SpecialScene::_initializeScene()
 {
-	objCreatedByGen = 1600;
+	objCreatedByGen = 49;
 	VFCbool = true;
 	_csv = new CSVwriter("../_vs2015/csvfiles/" + std::to_string(objCreatedByGen) + " VFC " + std::to_string(VFCbool) + ".csv");
 
@@ -90,8 +90,6 @@ void SpecialScene::_initializeScene()
 
 void SpecialScene::_render()
 {
-	//first run without VFC then after time expired with VFC
-	
 	if (_countSeconds > maxSeconds) _window->close();
 
 
