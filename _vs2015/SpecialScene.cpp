@@ -43,7 +43,7 @@ void SpecialScene::initialize()
 
 void SpecialScene::_initializeScene()
 {
-	objCreatedByGen = 49;
+	objCreatedByGen = 3600;
 	VFCbool = true;
 	_csv = new CSVwriter("../_vs2015/csvfiles/" + std::to_string(objCreatedByGen) + " VFC " + std::to_string(VFCbool) + ".csv");
 
